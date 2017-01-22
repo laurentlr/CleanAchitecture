@@ -9,6 +9,8 @@ import java.util.List;
 import io.reactivex.observers.TestObserver;
 import okhttp3.mockwebserver.MockResponse;
 import rule.ApiRule;
+import russier.laurent.fr.cleanarchitecture.data.JsonPhoto;
+import russier.laurent.fr.cleanarchitecture.data.PhotoService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

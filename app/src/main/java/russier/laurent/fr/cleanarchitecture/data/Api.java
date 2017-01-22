@@ -1,4 +1,4 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.data;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
@@ -19,7 +19,7 @@ public class Api {
                 .build();
     }
 
-    Retrofit getRetrofit() {
+    public Retrofit getRetrofit() {
         return retrofit;
     }
 }

@@ -9,7 +9,7 @@ import java.io.InputStream;
 
 import okhttp3.OkHttpClient;
 import okhttp3.mockwebserver.MockWebServer;
-import russier.laurent.fr.cleanarchitecture.Api;
+import russier.laurent.fr.cleanarchitecture.data.Api;
 
 import static org.junit.Assert.assertTrue;
 

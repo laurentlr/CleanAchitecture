@@ -1,9 +1,9 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.domain;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 
-interface PhotoUseCase {
+public interface PhotoRepository {
     Observable<List<Photo>> getPhotos();
 }

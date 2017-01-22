@@ -10,6 +10,12 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.observers.TestObserver;
+import russier.laurent.fr.cleanarchitecture.data.JsonPhoto;
+import russier.laurent.fr.cleanarchitecture.data.PhotoMapper;
+import russier.laurent.fr.cleanarchitecture.data.PhotoRepositoryImpl;
+import russier.laurent.fr.cleanarchitecture.data.PhotoService;
+import russier.laurent.fr.cleanarchitecture.domain.Photo;
+import russier.laurent.fr.cleanarchitecture.domain.PhotoRepository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;

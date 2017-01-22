@@ -1,7 +1,9 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.gui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import russier.laurent.fr.cleanarchitecture.R;
 
 public class MainActivity extends AppCompatActivity {
 

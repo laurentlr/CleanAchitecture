@@ -12,6 +12,10 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import rule.RxRule;
+import russier.laurent.fr.cleanarchitecture.domain.Photo;
+import russier.laurent.fr.cleanarchitecture.domain.PhotoUseCase;
+import russier.laurent.fr.cleanarchitecture.gui.PhotoPresenterImpl;
+import russier.laurent.fr.cleanarchitecture.gui.PhotoView;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;

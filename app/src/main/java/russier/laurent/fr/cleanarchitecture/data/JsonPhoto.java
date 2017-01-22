@@ -1,41 +1,41 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.data;
 
-class JsonPhoto {
+public class JsonPhoto {
     private int id;
     private int albumId;
     private String title;
     private String url;
     private String thumbnailUrl;
 
-    int getAlbumId() {
+    public int getAlbumId() {
         return albumId;
     }
 
-    void setAlbumId(int albumId) {
+    public void setAlbumId(int albumId) {
         this.albumId = albumId;
     }
 
-    int getId() {
+    public int getId() {
         return id;
     }
 
-    void setId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    String getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    String getThumbnailUrl() {
+    public String getThumbnailUrl() {
         return thumbnailUrl;
     }
 
-    void setThumbnailUrl(String thumbnailUrl) {
+    public void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
 }

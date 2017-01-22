@@ -1,16 +1,19 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.data;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 import io.reactivex.functions.Function;
+import russier.laurent.fr.cleanarchitecture.domain.Photo;
+import russier.laurent.fr.cleanarchitecture.domain.PhotoRepository;
 
-class PhotoRepositoryImpl implements PhotoRepository {
+
+public class PhotoRepositoryImpl implements PhotoRepository {
 
     private final PhotoService photoService;
     private final PhotoMapper photoMapper;
 
-    PhotoRepositoryImpl(PhotoService photoService, PhotoMapper photoMapper) {
+    public PhotoRepositoryImpl(PhotoService photoService, PhotoMapper photoMapper) {
         this.photoService = photoService;
         this.photoMapper = photoMapper;
     }

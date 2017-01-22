@@ -1,4 +1,4 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.gui;
 
 interface PhotoPresenter {
     void getPhotos();

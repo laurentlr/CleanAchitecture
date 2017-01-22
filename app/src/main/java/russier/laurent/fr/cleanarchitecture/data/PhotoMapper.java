@@ -1,9 +1,11 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.data;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class PhotoMapper {
+import russier.laurent.fr.cleanarchitecture.domain.Photo;
+
+public class PhotoMapper {
     List<Photo> transform(List<JsonPhoto> jsonPhotos) {
         List<Photo> photos = new ArrayList<>();
         for (JsonPhoto jsonPhoto : jsonPhotos) {

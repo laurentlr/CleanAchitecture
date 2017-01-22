@@ -1,10 +1,10 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.domain;
 
 import java.util.List;
 
 import io.reactivex.Observable;
 
-class PhotoUseCaseImpl implements PhotoUseCase {
+public class PhotoUseCaseImpl implements PhotoUseCase {
     private final PhotoRepository repository;
 
     PhotoUseCaseImpl(PhotoRepository repository) {

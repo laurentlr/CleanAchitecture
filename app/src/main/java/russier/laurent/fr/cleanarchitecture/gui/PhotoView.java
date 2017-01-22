@@ -1,6 +1,6 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.gui;
 
-interface PhotoView {
+public interface PhotoView {
     void displayPhotos();
 
     void displayNoResult();

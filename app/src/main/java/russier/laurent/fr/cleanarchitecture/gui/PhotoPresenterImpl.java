@@ -1,4 +1,4 @@
-package russier.laurent.fr.cleanarchitecture;
+package russier.laurent.fr.cleanarchitecture.gui;
 
 import java.util.List;
 
@@ -7,8 +7,10 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import russier.laurent.fr.cleanarchitecture.domain.Photo;
+import russier.laurent.fr.cleanarchitecture.domain.PhotoUseCase;
 
-class PhotoPresenterImpl implements PhotoPresenter {
+public class PhotoPresenterImpl implements PhotoPresenter {
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final PhotoUseCase useCase;
     private PhotoView view;
