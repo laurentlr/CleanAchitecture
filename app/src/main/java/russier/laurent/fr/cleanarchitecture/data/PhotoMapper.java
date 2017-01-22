@@ -21,6 +21,7 @@ public class PhotoMapper {
             photo.setId(jsonPhoto.getId());
             photo.setAlbumId(jsonPhoto.getAlbumId());
             photo.setThumbnailUrl(jsonPhoto.getThumbnailUrl());
+            photo.setTitle(jsonPhoto.getTitle());
             photos.add(photo);
         }
         return photos;

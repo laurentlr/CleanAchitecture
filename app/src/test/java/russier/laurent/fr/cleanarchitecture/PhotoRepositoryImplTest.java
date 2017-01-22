@@ -27,6 +27,7 @@ public class PhotoRepositoryImplTest {
     private final int id = 1;
     private final int albumId = 123;
     private final String url = "url";
+    private final String title = "title";
 
     private PhotoRepository repository;
     private PhotoService photoService;
@@ -54,6 +55,7 @@ public class PhotoRepositoryImplTest {
         assertThat(firstPhoto.getAlbumId()).isEqualTo(albumId);
         assertThat(firstPhoto.getId()).isEqualTo(id);
         assertThat(firstPhoto.getThumbnailUrl()).isEqualTo(url);
+        assertThat(firstPhoto.getTitle()).isEqualTo(title);
     }
 
     private List<JsonPhoto> getJsonPhotos() {
@@ -66,6 +68,7 @@ public class PhotoRepositoryImplTest {
         jsonPhoto.setAlbumId(albumId);
         jsonPhoto.setId(id);
         jsonPhoto.setThumbnailUrl(url);
+        jsonPhoto.setTitle(title);
         return jsonPhoto;
     }
 }
