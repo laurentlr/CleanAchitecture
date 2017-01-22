@@ -8,6 +8,7 @@ import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 
 import java.util.Collections;
+import java.util.List;
 
 import io.reactivex.Observable;
 import rule.RxRule;
@@ -29,7 +30,20 @@ public class AlbumPresenterImplTest {
 
         presenter.getAlbums();
 
+        verify(view).showProgress();
         verify(view).displayNoResult();
+        verify(view).hideProgress();
+    }
+
+    @Test
+    public void getAlbums_WhenError() throws Exception {
+        given(useCase.getAlbums()).willReturn(Observable.<List<Album>>error(new Exception()));
+
+        presenter.getAlbums();
+
+        verify(view).showProgress();
+        verify(view).displayTechnicalError();
+        verify(view).hideProgress();
     }
 
     @Test
@@ -38,6 +52,8 @@ public class AlbumPresenterImplTest {
 
         presenter.getAlbums();
 
+        verify(view).showProgress();
         verify(view).displayAlbums();
+        verify(view).hideProgress();
     }
 }

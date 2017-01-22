@@ -4,12 +4,14 @@ import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 class AlbumPresenterImpl implements AlbumPresenter {
-    private final AlbumView view;
+    private final CompositeDisposable compositeDisposable = new CompositeDisposable();
     private final AlbumUseCase useCase;
+    private AlbumView view;
 
     AlbumPresenterImpl(AlbumView view, AlbumUseCase useCase) {
         this.view = view;
@@ -18,13 +20,14 @@ class AlbumPresenterImpl implements AlbumPresenter {
 
     @Override
     public void getAlbums() {
+        view.showProgress();
         useCase.getAlbums()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<List<Album>>() {
+                .subscribeWith(new Observer<List<Album>>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
-                        //nothing
+                    public void onSubscribe(Disposable disposable) {
+                        compositeDisposable.add(disposable);
                     }
 
                     @Override
@@ -34,11 +37,13 @@ class AlbumPresenterImpl implements AlbumPresenter {
                         } else {
                             view.displayAlbums();
                         }
+                        view.hideProgress();
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        //nothing
+                        view.displayTechnicalError();
+                        view.hideProgress();
                     }
 
                     @Override
@@ -46,5 +51,11 @@ class AlbumPresenterImpl implements AlbumPresenter {
                         //nothing
                     }
                 });
+    }
+
+    @Override
+    public void onDestroy() {
+        compositeDisposable.dispose();
+        view = null;
     }
 }
