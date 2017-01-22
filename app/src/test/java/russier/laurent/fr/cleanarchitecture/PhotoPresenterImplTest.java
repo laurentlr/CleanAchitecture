@@ -14,11 +14,12 @@ import io.reactivex.Observable;
 import rule.RxRule;
 import russier.laurent.fr.cleanarchitecture.domain.Photo;
 import russier.laurent.fr.cleanarchitecture.domain.PhotoUseCase;
-import russier.laurent.fr.cleanarchitecture.gui.PhotoPresenterImpl;
 import russier.laurent.fr.cleanarchitecture.gui.PhotoView;
+import russier.laurent.fr.cleanarchitecture.gui.presenter.PhotoPresenterImpl;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Matchers.anyList;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 public class PhotoPresenterImplTest {
@@ -33,7 +34,7 @@ public class PhotoPresenterImplTest {
     public void getPhotos_WhenNoResult() throws Exception {
         given(useCase.getPhotos()).willReturn(Observable.just(Collections.<Photo>emptyList()));
 
-        presenter.getPhotos();
+        presenter.getPhotos(false);
 
         verify(view).showProgress();
         verify(view).displayNoResult();
@@ -44,7 +45,7 @@ public class PhotoPresenterImplTest {
     public void getPhotos_WhenError() throws Exception {
         given(useCase.getPhotos()).willReturn(Observable.<List<Photo>>error(new Exception()));
 
-        presenter.getPhotos();
+        presenter.getPhotos(false);
 
         verify(view).showProgress();
         verify(view).displayTechnicalError();
@@ -52,10 +53,25 @@ public class PhotoPresenterImplTest {
     }
 
     @Test
+    public void getPhotos_WhenAlreadyLoaded() throws Exception {
+        given(useCase.getPhotos()).willReturn(Observable.just(Collections.singletonList(new Photo())));
+
+        //load first time
+        presenter.getPhotos(false);
+        //reload
+        presenter.getPhotos(false);
+
+        verify(useCase).getPhotos();
+        verify(view, times(2)).showProgress();
+        verify(view, times(2)).displayPhotos(anyList());
+        verify(view, times(2)).hideProgress();
+    }
+
+    @Test
     public void getPhotos() throws Exception {
         given(useCase.getPhotos()).willReturn(Observable.just(Collections.singletonList(new Photo())));
 
-        presenter.getPhotos();
+        presenter.getPhotos(true);
 
         verify(view).showProgress();
         verify(view).displayPhotos(anyList());

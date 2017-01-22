@@ -1,4 +1,4 @@
-package russier.laurent.fr.cleanarchitecture.gui;
+package russier.laurent.fr.cleanarchitecture.gui.dagger;
 
 import java.lang.annotation.Retention;
 

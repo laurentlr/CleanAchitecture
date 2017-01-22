@@ -44,6 +44,9 @@ class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder> 
 
     class PhotoViewHolder extends RecyclerView.ViewHolder {
 
+        private static final int WIDTH = 200;
+        private static final int HEIGHT = 200;
+
         @BindView(R.id.title) TextView titleView;
         @BindView(R.id.image) ImageView imageView;
 
@@ -57,7 +60,7 @@ class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder> 
             Glide.with(imageView.getContext())
                     .load(photo.getThumbnailUrl())
                     .fitCenter()
-                    .override(200, 200)
+                    .override(WIDTH, HEIGHT)
                     .into(imageView);
         }
     }
