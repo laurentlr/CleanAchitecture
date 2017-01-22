@@ -7,5 +7,5 @@ import russier.laurent.fr.cleanarchitecture.data.NetComponent;
 @Component(dependencies = NetComponent.class, modules = PhotoModule.class)
 interface PhotoComponent {
 
-    void inject(MainActivity mainActivity);
+    void inject(PhotosActivity photosActivity);
 }
