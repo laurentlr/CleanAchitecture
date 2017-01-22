@@ -2,6 +2,8 @@ package russier.laurent.fr.cleanarchitecture.gui;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -15,6 +17,7 @@ public class PhotoPresenterImpl implements PhotoPresenter {
     private final PhotoUseCase useCase;
     private PhotoView view;
 
+    @Inject
     PhotoPresenterImpl(PhotoView view, PhotoUseCase useCase) {
         this.view = view;
         this.useCase = useCase;
@@ -37,7 +40,7 @@ public class PhotoPresenterImpl implements PhotoPresenter {
                         if (photos.isEmpty()) {
                             view.displayNoResult();
                         } else {
-                            view.displayPhotos();
+                            view.displayPhotos(photos);
                         }
                         view.hideProgress();
                     }

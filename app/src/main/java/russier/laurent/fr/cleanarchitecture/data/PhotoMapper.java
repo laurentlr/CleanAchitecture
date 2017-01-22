@@ -3,9 +3,17 @@ package russier.laurent.fr.cleanarchitecture.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import russier.laurent.fr.cleanarchitecture.domain.Photo;
 
 public class PhotoMapper {
+
+    @Inject
+    public PhotoMapper() {
+        //defautl constructor for injection
+    }
+
     List<Photo> transform(List<JsonPhoto> jsonPhotos) {
         List<Photo> photos = new ArrayList<>();
         for (JsonPhoto jsonPhoto : jsonPhotos) {

@@ -18,6 +18,7 @@ import russier.laurent.fr.cleanarchitecture.gui.PhotoPresenterImpl;
 import russier.laurent.fr.cleanarchitecture.gui.PhotoView;
 
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.anyList;
 import static org.mockito.Mockito.verify;
 
 public class PhotoPresenterImplTest {
@@ -57,7 +58,7 @@ public class PhotoPresenterImplTest {
         presenter.getPhotos();
 
         verify(view).showProgress();
-        verify(view).displayPhotos();
+        verify(view).displayPhotos(anyList());
         verify(view).hideProgress();
     }
 }

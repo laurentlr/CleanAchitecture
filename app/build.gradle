@@ -17,11 +17,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile "com.google.dagger:dagger:2.6.1"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.6.1"
+    provided 'javax.annotation:jsr250-api:1.0'
 
     //data
     compile "com.squareup.retrofit2:adapter-rxjava:2.1.0"

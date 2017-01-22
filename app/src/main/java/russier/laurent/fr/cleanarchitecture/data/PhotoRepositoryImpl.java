@@ -2,6 +2,8 @@ package russier.laurent.fr.cleanarchitecture.data;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 import io.reactivex.functions.Function;
 import russier.laurent.fr.cleanarchitecture.domain.Photo;
@@ -13,6 +15,7 @@ public class PhotoRepositoryImpl implements PhotoRepository {
     private final PhotoService photoService;
     private final PhotoMapper photoMapper;
 
+    @Inject
     public PhotoRepositoryImpl(PhotoService photoService, PhotoMapper photoMapper) {
         this.photoService = photoService;
         this.photoMapper = photoMapper;
