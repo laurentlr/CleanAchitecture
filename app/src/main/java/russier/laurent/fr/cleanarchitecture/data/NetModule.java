@@ -13,7 +13,7 @@ import russier.laurent.fr.cleanarchitecture.domain.PhotoRepository;
 @Module
 public class NetModule {
 
-    private String mBaseUrl;
+    private final String mBaseUrl;
 
     public NetModule(String baseUrl) {
         this.mBaseUrl = baseUrl;

@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PhotoServiceTest {
 
-    @Rule public ApiRule apiRule = new ApiRule();
+    @Rule public final ApiRule apiRule = new ApiRule();
     private PhotoService photoService;
 
     @Before

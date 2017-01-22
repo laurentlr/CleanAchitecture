@@ -15,8 +15,8 @@ import static org.junit.Assert.assertTrue;
 
 public class ApiRule implements TestRule {
 
+    private final MockWebServer mockServer = new MockWebServer();
     private Api api;
-    private MockWebServer mockServer = new MockWebServer();
 
     @Override
     public Statement apply(final Statement base, Description description) {

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Api {
 
-    private Retrofit retrofit;
+    private final Retrofit retrofit;
 
     public Api(String baseUrl, OkHttpClient client) {
         retrofit = new Retrofit.Builder()

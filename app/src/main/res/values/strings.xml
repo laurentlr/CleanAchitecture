@@ -2,4 +2,5 @@
     <string name="app_name">CleanArchitecture</string>
     <string name="technicalError">Technical Error</string>
     <string name="noResult">No result :(</string>
+    <string name="image">image</string>
 </resources>

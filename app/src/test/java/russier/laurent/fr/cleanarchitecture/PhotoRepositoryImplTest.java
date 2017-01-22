@@ -28,10 +28,9 @@ public class PhotoRepositoryImplTest {
     private final int albumId = 123;
     private final String url = "url";
     private final String title = "title";
-
+    private final PhotoMapper mapper = new PhotoMapper();
     private PhotoRepository repository;
     private PhotoService photoService;
-    private PhotoMapper mapper = new PhotoMapper();
 
     @Before
     public void setUp() throws Exception {
