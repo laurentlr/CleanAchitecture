@@ -8,34 +8,34 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-class AlbumPresenterImpl implements AlbumPresenter {
+class PhotoPresenterImpl implements PhotoPresenter {
     private final CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private final AlbumUseCase useCase;
-    private AlbumView view;
+    private final PhotoUseCase useCase;
+    private PhotoView view;
 
-    AlbumPresenterImpl(AlbumView view, AlbumUseCase useCase) {
+    PhotoPresenterImpl(PhotoView view, PhotoUseCase useCase) {
         this.view = view;
         this.useCase = useCase;
     }
 
     @Override
-    public void getAlbums() {
+    public void getPhotos() {
         view.showProgress();
-        useCase.getAlbums()
+        useCase.getPhotos()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new Observer<List<Album>>() {
+                .subscribeWith(new Observer<List<Photo>>() {
                     @Override
                     public void onSubscribe(Disposable disposable) {
                         compositeDisposable.add(disposable);
                     }
 
                     @Override
-                    public void onNext(List<Album> albums) {
-                        if (albums.isEmpty()) {
+                    public void onNext(List<Photo> photos) {
+                        if (photos.isEmpty()) {
                             view.displayNoResult();
                         } else {
-                            view.displayAlbums();
+                            view.displayPhotos();
                         }
                         view.hideProgress();
                     }

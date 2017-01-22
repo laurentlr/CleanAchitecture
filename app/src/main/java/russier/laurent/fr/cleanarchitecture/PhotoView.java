@@ -1,7 +1,7 @@
 package russier.laurent.fr.cleanarchitecture;
 
-interface AlbumView {
-    void displayAlbums();
+interface PhotoView {
+    void displayPhotos();
 
     void displayNoResult();
 

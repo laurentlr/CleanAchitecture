@@ -9,18 +9,18 @@ import org.mockito.junit.MockitoRule;
 
 import static org.mockito.Mockito.verify;
 
-public class AlbumUseCaseImplTest {
+public class PhotoUseCaseImplTest {
 
     @Rule public MockitoRule rule = MockitoJUnit.rule();
 
-    @InjectMocks private AlbumUseCaseImpl albumUseCase;
-    @Mock private AlbumRepository repository;
+    @InjectMocks private PhotoUseCaseImpl photoUseCase;
+    @Mock private PhotoRepository repository;
 
     @Test
-    public void getAlbums() throws Exception {
-        albumUseCase.getAlbums();
+    public void getPhotos() throws Exception {
+        photoUseCase.getPhotos();
 
-        verify(repository).getAlbums();
+        verify(repository).getPhotos();
 
     }
 }

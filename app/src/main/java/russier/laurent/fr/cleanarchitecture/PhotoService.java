@@ -5,8 +5,8 @@ import java.util.List;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 
-interface AlbumService {
+interface PhotoService {
 
     @GET("photos")
-    Observable<List<JsonAlbum>> getAlbums();
+    Observable<List<JsonPhoto>> getPhotos();
 }

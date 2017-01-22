@@ -16,19 +16,19 @@ import rule.RxRule;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 
-public class AlbumPresenterImplTest {
+public class PhotoPresenterImplTest {
 
     @Rule public RxRule rxRule = new RxRule();
     @Rule public MockitoRule rule = MockitoJUnit.rule();
-    @InjectMocks private AlbumPresenterImpl presenter;
-    @Mock private AlbumView view;
-    @Mock private AlbumUseCase useCase;
+    @InjectMocks private PhotoPresenterImpl presenter;
+    @Mock private PhotoView view;
+    @Mock private PhotoUseCase useCase;
 
     @Test
-    public void getAlbums_WhenNoResult() throws Exception {
-        given(useCase.getAlbums()).willReturn(Observable.just(Collections.<Album>emptyList()));
+    public void getPhotos_WhenNoResult() throws Exception {
+        given(useCase.getPhotos()).willReturn(Observable.just(Collections.<Photo>emptyList()));
 
-        presenter.getAlbums();
+        presenter.getPhotos();
 
         verify(view).showProgress();
         verify(view).displayNoResult();
@@ -36,10 +36,10 @@ public class AlbumPresenterImplTest {
     }
 
     @Test
-    public void getAlbums_WhenError() throws Exception {
-        given(useCase.getAlbums()).willReturn(Observable.<List<Album>>error(new Exception()));
+    public void getPhotos_WhenError() throws Exception {
+        given(useCase.getPhotos()).willReturn(Observable.<List<Photo>>error(new Exception()));
 
-        presenter.getAlbums();
+        presenter.getPhotos();
 
         verify(view).showProgress();
         verify(view).displayTechnicalError();
@@ -47,13 +47,13 @@ public class AlbumPresenterImplTest {
     }
 
     @Test
-    public void getAlbums() throws Exception {
-        given(useCase.getAlbums()).willReturn(Observable.just(Collections.singletonList(new Album())));
+    public void getPhotos() throws Exception {
+        given(useCase.getPhotos()).willReturn(Observable.just(Collections.singletonList(new Photo())));
 
-        presenter.getAlbums();
+        presenter.getPhotos();
 
         verify(view).showProgress();
-        verify(view).displayAlbums();
+        verify(view).displayPhotos();
         verify(view).hideProgress();
     }
 }

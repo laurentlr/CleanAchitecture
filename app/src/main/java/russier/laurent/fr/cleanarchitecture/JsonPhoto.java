@@ -1,6 +1,6 @@
 package russier.laurent.fr.cleanarchitecture;
 
-class JsonAlbum {
+class JsonPhoto {
     private int id;
     private int albumId;
     private String title;
@@ -11,7 +11,7 @@ class JsonAlbum {
         return albumId;
     }
 
-    public void setAlbumId(int albumId) {
+    void setAlbumId(int albumId) {
         this.albumId = albumId;
     }
 
@@ -19,7 +19,7 @@ class JsonAlbum {
         return id;
     }
 
-    public void setId(int id) {
+    void setId(int id) {
         this.id = id;
     }
 
@@ -27,23 +27,15 @@ class JsonAlbum {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     String getUrl() {
         return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
     }
 
     String getThumbnailUrl() {
         return thumbnailUrl;
     }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
+    void setThumbnailUrl(String thumbnailUrl) {
         this.thumbnailUrl = thumbnailUrl;
     }
 }

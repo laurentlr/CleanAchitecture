@@ -1,7 +1,7 @@
 package russier.laurent.fr.cleanarchitecture;
 
-interface AlbumPresenter {
-    void getAlbums();
+interface PhotoPresenter {
+    void getPhotos();
 
     void onDestroy();
 }

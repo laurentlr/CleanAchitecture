@@ -4,6 +4,6 @@ import java.util.List;
 
 import io.reactivex.Observable;
 
-interface AlbumUseCase {
-    Observable<List<Album>> getAlbums();
+interface PhotoUseCase {
+    Observable<List<Photo>> getPhotos();
 }
