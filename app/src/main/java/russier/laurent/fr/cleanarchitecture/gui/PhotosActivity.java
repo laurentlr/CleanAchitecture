@@ -16,7 +16,8 @@ import butterknife.ButterKnife;
 import russier.laurent.fr.cleanarchitecture.R;
 import russier.laurent.fr.cleanarchitecture.domain.Photo;
 
-public class PhotosActivity extends AppCompatActivity implements PhotoView {
+public class PhotosActivity extends AppCompatActivity
+        implements PhotoView, SwipeRefreshLayout.OnRefreshListener {
 
     private static final int RESULT_CHILD = 0;
     private static final int NO_RESULT_CHILD = 2;
@@ -42,12 +43,19 @@ public class PhotosActivity extends AppCompatActivity implements PhotoView {
         photoPresenter.getPhotos();
     }
 
+    @Override
+    protected void onDestroy() {
+        photoPresenter.onDestroy();
+        super.onDestroy();
+    }
+
     private void initView() {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new PhotosAdapter();
         recyclerView.setAdapter(adapter);
+        swipeRefreshLayout.setOnRefreshListener(this);
     }
 
     @Override
@@ -74,5 +82,10 @@ public class PhotosActivity extends AppCompatActivity implements PhotoView {
     @Override
     public void displayTechnicalError() {
         viewFlipper.setDisplayedChild(ERROR_CHILD);
+    }
+
+    @Override
+    public void onRefresh() {
+        photoPresenter.getPhotos();
     }
 }
