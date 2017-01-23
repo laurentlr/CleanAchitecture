@@ -2,8 +2,6 @@ package russier.laurent.fr.cleanarchitecture.gui.presenter;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -19,7 +17,6 @@ public class PhotoPresenterImpl implements PhotoPresenter {
     private PhotoView view;
     private List<Photo> photos = null;
 
-    @Inject
     public PhotoPresenterImpl(PhotoView view, PhotoUseCase useCase) {
         this.view = view;
         this.useCase = useCase;
@@ -28,6 +25,7 @@ public class PhotoPresenterImpl implements PhotoPresenter {
 
     PhotoPresenterImpl(PhotoUseCase photoUseCase) {
         this.useCase = photoUseCase;
+        compositeDisposable = new CompositeDisposable();
     }
 
     @Override
@@ -89,6 +87,7 @@ public class PhotoPresenterImpl implements PhotoPresenter {
 
     @Override
     public void onViewDetached() {
+        compositeDisposable.dispose();
         view = null;
     }
 }
