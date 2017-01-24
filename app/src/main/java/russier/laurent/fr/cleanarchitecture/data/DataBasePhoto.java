@@ -2,12 +2,19 @@ package russier.laurent.fr.cleanarchitecture.data;
 
 import com.orm.SugarRecord;
 
+/**
+ * public for SugarOrm
+ */
 public class DataBasePhoto extends SugarRecord {
 
     private int photoId;
     private int albumId;
     private String title;
     private String thumbnailUrl;
+
+    public DataBasePhoto() {
+        //empty constructor for SugarORM
+    }
 
     public DataBasePhoto(int photoId, int albumId, String title, String thumbnailUrl) {
         this.photoId = photoId;

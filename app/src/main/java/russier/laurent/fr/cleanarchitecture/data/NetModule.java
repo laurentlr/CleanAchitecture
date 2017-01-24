@@ -52,8 +52,14 @@ public class NetModule {
 
     @Provides
     @Singleton
-    PhotoRepository providePhotoRepository(PhotoService photoService, PhotoMapper mapper) {
-        return new PhotoRepositoryImpl(photoService, mapper);
+    DataBase provideDataBase() {
+        return new DataBaseImpl();
+    }
+
+    @Provides
+    @Singleton
+    PhotoRepository providePhotoRepository(PhotoService photoService, PhotoMapper mapper, DataBase dataBase) {
+        return new PhotoRepositoryImpl(photoService, mapper, dataBase);
     }
 
 }
