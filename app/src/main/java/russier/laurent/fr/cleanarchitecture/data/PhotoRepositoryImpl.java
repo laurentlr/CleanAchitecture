@@ -43,6 +43,13 @@ public class PhotoRepositoryImpl implements PhotoRepository {
                         dataBase.save(dataBasePhoto);
                     }
                 }
+            }).doAfterNext(new Consumer<List<Photo>>() {
+                @Override
+                public void accept(List<Photo> photos) throws Exception {
+                    for (Photo photo : photos) {
+                        dataBase.savePhoto(photo.getId());
+                    }
+                }
             });
         } else {
             return Observable.fromCallable(new Callable<List<Photo>>() {

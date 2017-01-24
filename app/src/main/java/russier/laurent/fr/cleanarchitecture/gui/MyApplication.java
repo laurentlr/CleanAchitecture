@@ -17,7 +17,7 @@ public class MyApplication extends Application {
         super.onCreate();
         SugarContext.init(this);
         netComponent = DaggerNetComponent.builder()
-                .netModule(new NetModule("http://jsonplaceholder.typicode.com/"))
+                .netModule(new NetModule("http://jsonplaceholder.typicode.com/", getApplicationContext()))
                 .build();
     }
 

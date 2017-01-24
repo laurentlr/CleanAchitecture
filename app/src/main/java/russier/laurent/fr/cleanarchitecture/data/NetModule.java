@@ -1,5 +1,7 @@
 package russier.laurent.fr.cleanarchitecture.data;
 
+import android.content.Context;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -14,9 +16,11 @@ import russier.laurent.fr.cleanarchitecture.domain.PhotoRepository;
 public class NetModule {
 
     private final String mBaseUrl;
+    private final Context applicationContext;
 
-    public NetModule(String baseUrl) {
+    public NetModule(String baseUrl, Context applicationContext) {
         this.mBaseUrl = baseUrl;
+        this.applicationContext = applicationContext;
     }
 
     @Provides
@@ -53,7 +57,7 @@ public class NetModule {
     @Provides
     @Singleton
     DataBase provideDataBase() {
-        return new DataBaseImpl();
+        return new DataBaseImpl(applicationContext);
     }
 
     @Provides

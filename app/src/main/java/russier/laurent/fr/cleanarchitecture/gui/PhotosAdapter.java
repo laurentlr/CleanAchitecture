@@ -57,6 +57,8 @@ class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder> 
 
         void displayPhoto(Photo photo) {
             titleView.setText(photo.getTitle());
+            //TODO : differentiate localPhoto and online Photo
+            //TODO : cancel Glide loading if the view holder hasn't had time to show the photo but is still oading it
             Glide.with(imageView.getContext())
                     .load(photo.getThumbnailUrl())
                     .fitCenter()
