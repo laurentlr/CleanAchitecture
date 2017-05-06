@@ -3,20 +3,18 @@ package russier.laurent.fr.cleanarchitecture.gui.presenter;
 import android.content.Context;
 import android.support.v4.content.Loader;
 
-import russier.laurent.fr.cleanarchitecture.gui.PhotosActivity;
-
 /**
  * Presenter surviving lifecycle
  * https://medium.com/@czyrux/presenter-surviving-orientation-changes-with-loaders-6da6d86ffbbf#.43gscfu7j
  *
  * @param <T>
  */
-public class PresenterLoader<T extends PhotoPresenter> extends Loader<T> {
+public class PresenterLoader<T extends Presenter> extends Loader<T> {
 
-    private final PhotosActivity.PresenterFactory<T> factory;
+    private final PresenterFactory<T> factory;
     private T presenter;
 
-    public PresenterLoader(Context context, PhotosActivity.PresenterFactory<T> factory) {
+    public PresenterLoader(Context context, PresenterFactory<T> factory) {
         super(context);
         this.factory = factory;
     }
