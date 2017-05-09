@@ -117,9 +117,4 @@ public class PhotosActivity extends AppCompatActivity implements
         recyclerView.setAdapter(adapter);
         swipeRefreshLayout.setOnRefreshListener(this);
     }
-
-    public interface PresenterFactory<T extends PhotoPresenter> {
-        T create();
-    }
-
 }

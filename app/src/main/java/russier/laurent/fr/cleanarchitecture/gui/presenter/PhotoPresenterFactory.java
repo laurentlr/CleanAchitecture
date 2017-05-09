@@ -6,11 +6,10 @@ import javax.inject.Inject;
 
 import russier.laurent.fr.cleanarchitecture.domain.PhotoUseCase;
 import russier.laurent.fr.cleanarchitecture.gui.MyApplication;
-import russier.laurent.fr.cleanarchitecture.gui.PhotosActivity;
 import russier.laurent.fr.cleanarchitecture.gui.dagger.DaggerPhotoComponent;
 import russier.laurent.fr.cleanarchitecture.gui.dagger.PhotoModule;
 
-public class PhotoPresenterFactory implements PhotosActivity.PresenterFactory<PhotoPresenter> {
+public class PhotoPresenterFactory implements PresenterFactory<PhotoPresenter> {
 
     private final Context context;
     @Inject PhotoUseCase photoUseCase;
